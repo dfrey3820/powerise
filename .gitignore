@@ -10,3 +10,6 @@ dist
 *.log
 .vercel
 next-env.d.ts
+
+# Client source materials — kept local only
+docs/

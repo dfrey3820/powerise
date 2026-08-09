@@ -1,128 +1,99 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
-
-type Status = "idle" | "sending" | "sent" | "error";
-
-const interests = [
-  "Utility Monitoring",
-  "Cold Chain",
-  "Smart Home",
-  "Something else"
-];
+import { Check, Loader2 } from "lucide-react";
+import { Button } from "./Button";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<Status>("idle");
-  const [interest, setInterest] = useState<string>(interests[0]);
+  const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("sending");
-    // Simulated submission — wire up to a real endpoint (e.g. /api/contact or Resend)
+    setStatus("submitting");
     await new Promise((r) => setTimeout(r, 900));
     setStatus("sent");
   };
 
   if (status === "sent") {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-2xl border border-brand-600/30 bg-ink-900/60 p-10 text-center backdrop-blur"
-      >
-        <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand-600 text-white shadow-md ring-1 ring-brand-700/40">
-          <CheckCircle2 className="h-7 w-7" />
-        </span>
-        <h3 className="mt-4 font-display text-2xl font-semibold text-fog-100">
-          Message received
+      <div className="rounded-2xl border border-ink-300 bg-ink-50 p-10 text-center">
+        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-brand-50 text-brand-600">
+          <Check className="h-6 w-6" />
+        </div>
+        <h3 className="mt-5 font-display text-2xl font-semibold text-fog-100">
+          Thank you.
         </h3>
-        <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-fog-300">
-          A member of our solutions team will be in touch within one working
-          hour. If it is urgent, call our front desk on +254 733 816 010.
+        <p className="mt-2 text-sm text-fog-300">
+          A Powerise engineer will reach out within one business day.
         </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="mt-6 rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-fog-100 hover:bg-white/10"
-        >
-          Send another
-        </button>
-      </motion.div>
+      </div>
     );
   }
 
   return (
     <form
-      onSubmit={onSubmit}
-      className="relative overflow-hidden rounded-2xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur md:p-8"
+      onSubmit={handleSubmit}
+      className="grid gap-5 rounded-2xl border border-ink-300 bg-ink-50 p-6 md:p-8"
     >
-      <div className="relative grid gap-4 md:grid-cols-2">
-        <Field label="Full name" name="name" placeholder="Wanjiku Kamau" required />
-        <Field label="Work email" name="email" type="email" placeholder="you@company.co.ke" required />
-        <Field label="Organisation" name="org" placeholder="Acme Utilities Ltd" />
-        <Field label="Phone" name="phone" placeholder="+254 700 000 000" />
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Full name" name="name" required />
+        <Field label="Company" name="company" />
       </div>
-
-      <div className="relative mt-5">
-        <label className="mb-2 block text-xs font-semibold uppercase tracking-widest text-fog-300">
-          I&apos;m interested in
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Email" name="email" type="email" required />
+        <Field label="Phone" name="phone" type="tel" />
+      </div>
+      <div>
+        <label className="text-xs font-semibold uppercase tracking-widest text-fog-300">
+          Interested in
         </label>
-        <div className="flex flex-wrap gap-2">
-          {interests.map((i) => (
-            <button
-              type="button"
-              key={i}
-              onClick={() => setInterest(i)}
-              className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${
-                interest === i
-                  ? "border-brand-500/60 bg-brand-500/15 text-brand-100"
-                  : "border-white/10 bg-white/5 text-fog-300 hover:text-fog-100"
-              }`}
-            >
-              {i}
-            </button>
-          ))}
-        </div>
-        <input type="hidden" name="interest" value={interest} />
-      </div>
-
-      <div className="relative mt-5">
-        <label
-          htmlFor="message"
-          className="mb-2 block text-xs font-semibold uppercase tracking-widest text-fog-300"
+        <select
+          name="interest"
+          defaultValue=""
+          className="mt-2 block w-full rounded-md border border-ink-300 bg-ink-50 px-3 py-2.5 text-sm text-fog-100 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
         >
-          Tell us about the outcome you want
+          <option value="" disabled>
+            Select a solution
+          </option>
+          <option value="energy-monitoring">Energy Monitoring</option>
+          <option value="generator-monitoring">Generator Monitoring</option>
+          <option value="cold-chain">Cold Chain</option>
+          <option value="truck-telematics">Truck &amp; Fleet Telematics</option>
+          <option value="water-gas-metering">Water &amp; Gas Metering</option>
+          <option value="smart-home">Smart Home &amp; Locks</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div>
+        <label className="text-xs font-semibold uppercase tracking-widest text-fog-300">
+          How can we help?
         </label>
         <textarea
-          id="message"
           name="message"
           rows={5}
           required
-          placeholder="e.g. cut diesel spend across 42 branches by end of Q3, and get a monthly ESG-ready export."
-          className="w-full resize-none rounded-md border border-white/10 bg-ink-950/60 px-4 py-3 text-sm text-fog-100 placeholder:text-fog-300/60 focus:border-brand-500/60 focus:outline-none focus:ring-2 focus:ring-brand-500/25"
+          placeholder="Tell us about your site, fleet or facility."
+          className="mt-2 block w-full rounded-md border border-ink-300 bg-ink-50 px-3 py-2.5 text-sm text-fog-100 placeholder:text-fog-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
         />
       </div>
-
-      <div className="relative mt-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+      <div className="flex items-center justify-between gap-4 border-t border-ink-300 pt-5">
         <p className="text-xs text-fog-300">
-          By submitting, you agree to our privacy policy. We reply within one
-          working hour.
+          We reply within one business day. No spam, ever.
         </p>
-        <button
+        <Button
           type="submit"
-          disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-brand-700/50 transition-colors hover:bg-brand-700 disabled:opacity-70"
+          variant="primary"
+          arrow={status !== "submitting"}
         >
-          <span>
-            {status === "sending" ? "Sending…" : "Send message"}
-          </span>
-          {status === "sending" ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
+          {status === "submitting" ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Sending
+            </>
           ) : (
-            <Send className="h-4 w-4" />
+            "Send message"
           )}
-        </button>
+        </Button>
       </div>
     </form>
   );
@@ -132,27 +103,25 @@ function Field({
   label,
   name,
   type = "text",
-  placeholder,
-  required
+  required = false
 }: {
   label: string;
   name: string;
   type?: string;
-  placeholder?: string;
   required?: boolean;
 }) {
   return (
-    <label className="flex flex-col gap-2">
-      <span className="text-xs font-semibold uppercase tracking-widest text-fog-300">
+    <div>
+      <label className="text-xs font-semibold uppercase tracking-widest text-fog-300">
         {label}
-      </span>
+        {required && <span className="text-brand-600"> *</span>}
+      </label>
       <input
         type={type}
         name={name}
         required={required}
-        placeholder={placeholder}
-        className="w-full rounded-md border border-white/10 bg-ink-950/60 px-4 py-2.5 text-sm text-fog-100 placeholder:text-fog-300/60 focus:border-brand-500/60 focus:outline-none focus:ring-2 focus:ring-brand-500/25"
+        className="mt-2 block w-full rounded-md border border-ink-300 bg-ink-50 px-3 py-2.5 text-sm text-fog-100 placeholder:text-fog-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
       />
-    </label>
+    </div>
   );
 }

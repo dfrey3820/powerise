@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
 
 type Slide = {
   src: string;
@@ -16,27 +16,27 @@ type Slide = {
 const slides: Slide[] = [
   {
     src: "/hero/slide-1.jpg",
-    eyebrow: "Smart Home Automation",
-    title: "Intelligent living spaces, engineered for reliability.",
+    eyebrow: "Energy & Generator Monitoring",
+    title: "See every kWh. Stop every drop of stolen fuel.",
     description:
-      "Smart lighting, security, climate control and entertainment — unified under one Powerise platform, professionally installed and supported to enterprise SLAs.",
-    href: "/services/smart-home"
+      "IoT-enabled energy audits and genset telemetry — real-time consumption, engine health and fuel-theft alerts across your entire portfolio.",
+    href: "/services/energy-monitoring"
   },
   {
     src: "/hero/slide-2.jpg",
-    eyebrow: "IoT Utility Monitoring",
-    title: "Real-time visibility across water, power and gas networks.",
+    eyebrow: "Cold Chain Integrity",
+    title: "Every degree, logged and defensible.",
     description:
-      "Metering, telemetry and analytics for utilities and industrial operators — reduce non-revenue losses, prove compliance and act on live operational data.",
-    href: "/services/utility-monitoring"
+      "Global real-time monitors for vaccines, pharma and food logistics — temperature, humidity, light, shock and location, WHO-PQS aligned.",
+    href: "/services/cold-chain"
   },
   {
     src: "/hero/slide-3.jpg",
-    eyebrow: "Cold Chain Management",
-    title: "WHO PQS-aligned cold chain, monitored end-to-end.",
+    eyebrow: "Smart Home & Locks",
+    title: "A home that thinks with you.",
     description:
-      "Cold rooms, coolers and refrigerated logistics with tamper-proof temperature records — audit-ready reporting from storage to last-mile delivery.",
-    href: "/services/cold-chain"
+      "Smart locks, switches, lighting and CCTV, unified in one app — with mobile, PIN, RFID, fingerprint and mechanical-key access.",
+    href: "/services/smart-home"
   }
 ];
 
@@ -44,92 +44,79 @@ export function Hero() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % slides.length);
-    }, 6000);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 6500);
     return () => clearInterval(id);
   }, []);
 
-  return (
-    <section className="relative isolate overflow-hidden">
-      <div className="relative h-[560px] w-full sm:h-[620px] md:h-[680px] lg:h-[720px]">
-        {slides.map((slide, i) => (
-          <div
-            key={slide.src}
-            aria-hidden={i !== index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
-              i === index ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={slide.src}
-              alt={slide.title}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/55 to-ink-950/20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent" />
-          </div>
-        ))}
+  const active = slides[index];
 
-        <div className="container-x relative flex h-full items-center pt-24">
-          <div className="relative max-w-2xl">
-            {slides.map((slide, i) => (
-              <div
-                key={slide.title}
-                className={`transition-all duration-700 ${
-                  i === index
-                    ? "opacity-100 translate-y-0"
-                    : "pointer-events-none absolute inset-0 opacity-0 translate-y-4"
+  return (
+    <section className="relative overflow-hidden border-b border-ink-300 bg-ink-50">
+      <div className="container-x relative grid gap-10 py-16 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-32">
+        <div className="relative z-10 max-w-2xl">
+          <p className="eyebrow">{active.eyebrow}</p>
+          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-fog-100 sm:text-5xl md:text-[3.5rem] lg:text-[3.75rem]">
+            {active.title}
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-fog-300 sm:text-lg">
+            {active.description}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href={active.href}
+              className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            >
+              Explore the solution
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-md border border-ink-300 bg-ink-50 px-6 py-3 text-sm font-semibold text-fog-100 transition-colors hover:bg-ink-100"
+            >
+              <Phone className="h-4 w-4" />
+              Request a callback
+            </Link>
+          </div>
+
+          <div className="mt-10 flex items-center gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setIndex(i)}
+                aria-label={`Show slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === index ? "w-8 bg-brand-500" : "w-4 bg-ink-400 hover:bg-ink-500"
                 }`}
-                aria-hidden={i !== index}
-              >
-                <p className="font-mono text-xs uppercase tracking-[0.35em] text-brand-400">
-                  {slide.eyebrow}
-                </p>
-                <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl md:text-[3.25rem] lg:text-[3.5rem]">
-                  {slide.title}
-                </h1>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-fog-200 sm:text-lg">
-                  {slide.description}
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href={slide.href}
-                    className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-brand-700/50 transition-colors hover:bg-brand-700"
-                  >
-                    Learn more
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-fog-100 backdrop-blur transition-colors hover:border-white/50 hover:bg-white/10"
-                  >
-                    <Phone className="h-4 w-4" />
-                    Request a callback
-                  </Link>
-                </div>
-              </div>
+              />
             ))}
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setIndex(i)}
-              aria-label={`Show slide ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index
-                  ? "w-10 bg-brand-500"
-                  : "w-4 bg-white/30 hover:bg-white/50"
-              }`}
-            />
-          ))}
+        <div className="relative">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-ink-300 bg-ink-100 shadow-xl shadow-ink-900/5 lg:aspect-square">
+            {slides.map((s, i) => (
+              <Image
+                key={s.src}
+                src={s.src}
+                alt={s.title}
+                fill
+                priority={i === 0}
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className={`object-cover transition-opacity duration-700 ${
+                  i === index ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-ink-300 bg-ink-50 p-4 shadow-xl shadow-ink-900/5 sm:block">
+            <p className="eyebrow">On-device capacity</p>
+            <p className="mt-2 font-display text-2xl font-semibold text-fog-100">
+              50,000<span className="ml-1 text-sm font-normal text-fog-300"> readings</span>
+            </p>
+            <p className="text-xs text-fog-300">stored per Powerise data logger</p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -11,14 +11,15 @@ const inter = Inter({
   display: "swap"
 });
 
-const space = Space_Grotesk({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-space",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-montserrat",
   display: "swap"
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050a08",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1
 };
@@ -30,15 +31,16 @@ export const metadata: Metadata = {
     template: "%s · Powerise Solutions"
   },
   description:
-    "Powerise Solutions Limited designs and deploys IoT platforms for utility monitoring, cold-chain integrity and smart-home automation across East Africa.",
+    "Powerise Solutions Limited designs and deploys IoT platforms for energy, generator, water, gas, cold-chain and smart-home applications across East Africa.",
   keywords: [
     "IoT Kenya",
     "Smart Home Nairobi",
     "Cold chain monitoring",
-    "Utility monitoring",
+    "Energy monitoring",
+    "Generator monitoring",
     "Powerise",
     "Smart meters",
-    "Genset monitoring"
+    "Truck telematics"
   ],
   authors: [{ name: "Powerise Solutions Limited" }],
   openGraph: {
@@ -48,13 +50,13 @@ export const metadata: Metadata = {
     siteName: "Powerise Solutions",
     title: "Powerise Solutions — Intelligent IoT for a Connected Africa",
     description:
-      "Utility monitoring, cold-chain integrity and smart-home automation. Powered by data, engineered for resilience."
+      "Energy, generator, water, gas, cold-chain and smart-home IoT — engineered for African conditions."
   },
   twitter: {
     card: "summary_large_image",
     title: "Powerise Solutions — Intelligent IoT",
     description:
-      "Utility monitoring, cold-chain integrity and smart-home automation."
+      "Energy, generator, water, gas, cold-chain and smart-home IoT — engineered for African conditions."
   }
 };
 
@@ -64,11 +66,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${space.variable}`}>
-      <body className="antialiased">
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+      <body className="antialiased bg-ink-50 text-fog-100">
         <ScrollProgress />
         <Navbar />
-        <main className="relative min-h-screen">{children}</main>
+        <main className="relative min-h-screen pt-[var(--nav-h)]">{children}</main>
         <Footer />
       </body>
     </html>

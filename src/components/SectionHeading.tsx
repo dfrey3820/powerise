@@ -1,37 +1,23 @@
-import { cn } from "@/lib/utils";
-
 export function SectionHeading({
   eyebrow,
   title,
   description,
-  align = "center",
-  className
+  align = "left"
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
   align?: "left" | "center";
-  className?: string;
 }) {
+  const alignCls = align === "center" ? "text-center mx-auto" : "text-left";
   return (
-    <div
-      className={cn(
-        "flex flex-col gap-4",
-        align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl",
-        className
-      )}
-    >
-      {eyebrow && (
-        <span className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-brand-200 backdrop-blur">
-          <span className="h-1.5 w-1.5 animate-blink rounded-full bg-mint-500" />
-          {eyebrow}
-        </span>
-      )}
-      <h2 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fog-100 text-balance sm:text-4xl md:text-5xl">
+    <div className={`max-w-2xl ${alignCls}`}>
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-fog-100 sm:text-4xl md:text-[2.5rem] md:leading-[1.1]">
         {title}
       </h2>
       {description && (
-        <p className="text-base leading-relaxed text-fog-300 text-pretty md:text-lg">
+        <p className="mt-4 text-base leading-relaxed text-fog-300 md:text-lg">
           {description}
         </p>
       )}
