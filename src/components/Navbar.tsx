@@ -88,6 +88,10 @@ export function Navbar() {
                               <div
                                 key={c.href}
                                 className="relative border-b border-ink-300/70 last:border-b-0"
+                                onMouseEnter={() =>
+                                  c.children && setDesktopSubmenu(c.href)
+                                }
+                                onMouseLeave={() => setDesktopSubmenu(null)}
                               >
                                 <div className="flex items-center rounded-xl transition-colors hover:bg-ink-100">
                                   <Link
@@ -99,30 +103,24 @@ export function Navbar() {
                                     </span>
                                   </Link>
                                   {c.children && (
-                                    <button
-                                      type="button"
-                                      aria-label={`Show ${c.label} models`}
-                                      aria-expanded={desktopSubmenu === c.href}
-                                      onClick={() =>
-                                        setDesktopSubmenu((current) =>
-                                          current === c.href ? null : c.href
-                                        )
-                                      }
-                                      className="mr-2 grid h-8 w-8 flex-none place-items-center rounded-md text-fog-300 hover:bg-ink-200 hover:text-fog-100"
+                                    <span
+                                      aria-hidden
+                                      className="mr-2 grid h-8 w-8 flex-none place-items-center text-fog-300"
                                     >
                                       <ChevronDown
                                         className={cn(
-                                          "h-4 w-4 transition-transform",
-                                          desktopSubmenu === c.href && "rotate-180"
+                                          "h-4 w-4 -rotate-90 transition-opacity",
+                                          desktopSubmenu !== c.href && "opacity-60"
                                         )}
                                       />
-                                    </button>
+                                    </span>
                                   )}
                                 </div>
                                 {c.children && (
                                   <div
                                     className={cn(
                                       "absolute left-full top-0 z-10 ml-2 w-56 rounded-lg border border-ink-300 bg-ink-50 p-1.5 shadow-xl shadow-ink-900/5",
+                                      "before:absolute before:-left-2 before:top-0 before:h-full before:w-2",
                                       desktopSubmenu === c.href ? "block" : "hidden"
                                     )}
                                   >
