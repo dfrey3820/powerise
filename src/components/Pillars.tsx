@@ -34,41 +34,11 @@ export function Pillars() {
     <section id="divisions" className="relative py-16 md:py-24">
       <div className="container-x">
         {/* Section header */}
-        <div className="grid gap-8 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-7">
-            <p className="eyebrow">Our divisions</p>
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-fog-100 sm:text-4xl md:text-[2.75rem]">
-              Five divisions.
-              <br />
-              <span className="text-brand-600">One connected platform.</span>
-            </h2>
-          </div>
-          <div className="md:col-span-5">
-            <p className="max-w-md text-sm leading-6 text-fog-300 md:text-base md:leading-7">
-              Each division runs as a dedicated practice — its own hardware,
-              its own specialists — reporting into one dashboard. Start where
-              it hurts most, scale when you&apos;re ready.
-            </p>
-          </div>
+        <div className="border-b border-ink-300 pb-10">
+          <h2 className="font-display text-3xl font-semibold leading-tight text-fog-100 sm:text-4xl md:text-[2.75rem]">
+            Our <span className="text-brand-600">Solution</span>
+          </h2>
         </div>
-
-        {/* Index rail */}
-        <nav
-          aria-label="Divisions index"
-          className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-y border-ink-300 py-4"
-        >
-          {pillars.map((p) => (
-            <a
-              key={p.slug}
-              href={`#${p.slug}`}
-              className="group inline-flex items-baseline gap-2 text-sm font-medium text-fog-300 transition-colors hover:text-fog-100"
-            >
-              <span className="underline-offset-4 group-hover:underline">
-                {p.title}
-              </span>
-            </a>
-          ))}
-        </nav>
 
         {/* Division chapters */}
         <div>
