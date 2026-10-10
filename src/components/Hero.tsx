@@ -30,7 +30,7 @@ const slides: Slide[] = [
     title: "Catch losses before they add up.",
     description:
       "Track usage and spot leaks, tampering and unusual readings sooner.",
-    href: "/services/water-gas-metering",
+    href: "/services/utility-monitoring",
     imageAlt: "Installed smart electricity meters and wiring"
   },
   {

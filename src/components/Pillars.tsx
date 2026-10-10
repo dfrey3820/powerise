@@ -25,7 +25,7 @@ const imageAlts: Record<string, string> = {
   "energy-monitoring": "Smart energy meters installed in a distribution board",
   "cold-chain": "Frigga cold-chain temperature data loggers",
   "truck-telematics": "Truck telematics dashboard with live fleet view",
-  "water-gas-metering": "Smart utility metering in the field",
+  "utility-monitoring": "Utility monitoring dashboard with live genset and energy telemetry",
   "smart-home": "Smart lock with fingerprint and PIN access"
 };
 

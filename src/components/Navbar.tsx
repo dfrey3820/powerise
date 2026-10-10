@@ -94,14 +94,22 @@ export function Navbar() {
                                 onMouseLeave={() => setDesktopSubmenu(null)}
                               >
                                 <div className="flex items-center rounded-xl transition-colors hover:bg-ink-100">
-                                  <Link
-                                    href={c.href}
-                                    className="group flex min-w-0 flex-1 flex-col px-2.5 py-2"
-                                  >
-                                    <span className="text-sm font-medium text-fog-100 group-hover:text-brand-600">
-                                      {c.label}
+                                  {c.linkless ? (
+                                    <span className="group flex min-w-0 flex-1 cursor-default flex-col px-2.5 py-2">
+                                      <span className="text-sm font-medium text-fog-100">
+                                        {c.label}
+                                      </span>
                                     </span>
-                                  </Link>
+                                  ) : (
+                                    <Link
+                                      href={c.href}
+                                      className="group flex min-w-0 flex-1 flex-col px-2.5 py-2"
+                                    >
+                                      <span className="text-sm font-medium text-fog-100 group-hover:text-brand-600">
+                                        {c.label}
+                                      </span>
+                                    </Link>
+                                  )}
                                   {c.children && (
                                     <span
                                       aria-hidden
@@ -212,12 +220,18 @@ export function Navbar() {
                         {item.children.map((c) => (
                           <li key={c.href}>
                             <div className="flex items-center">
-                              <Link
-                                href={c.href}
-                                className="flex-1 rounded-lg px-3 py-2 text-xs text-fog-300 hover:text-fog-100"
-                              >
-                                {c.label}
-                              </Link>
+                              {c.linkless ? (
+                                <span className="flex-1 rounded-lg px-3 py-2 text-xs text-fog-300">
+                                  {c.label}
+                                </span>
+                              ) : (
+                                <Link
+                                  href={c.href}
+                                  className="flex-1 rounded-lg px-3 py-2 text-xs text-fog-300 hover:text-fog-100"
+                                >
+                                  {c.label}
+                                </Link>
+                              )}
                               {c.children && (
                                 <button
                                   type="button"
