@@ -126,7 +126,7 @@ export function Hero() {
             <div className="mt-7">
               <Link
                 href={active.href}
-                className="inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-500 px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+                className="inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-red px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-red/85"
               >
                 Explore solution
                 <ArrowRight className="h-4 w-4" />
