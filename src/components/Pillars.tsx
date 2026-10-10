@@ -124,7 +124,7 @@ export function Pillars() {
                   <div className="mt-8">
                     <Link
                       href={`/services/${p.slug}`}
-                      className="group inline-flex items-center gap-2.5 border border-ink-900 px-5 py-3 text-sm font-semibold text-fog-100 transition-colors hover:border-brand-600 hover:bg-brand-600 hover:text-white"
+                      className="group inline-flex items-center gap-2.5 rounded-full border border-ink-900 px-6 py-3 text-sm font-semibold text-fog-100 transition-colors hover:border-brand-600 hover:bg-brand-600 hover:text-white"
                     >
                       Explore {p.title}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
