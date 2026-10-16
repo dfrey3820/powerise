@@ -31,16 +31,14 @@ export const metadata: Metadata = {
     template: "%s · Powerise Solutions"
   },
   description:
-    "Powerise Solutions Limited designs and deploys IoT platforms for energy, generator, water, gas, cold-chain and smart-home applications across East Africa.",
+    "Powerise Solutions Limited delivers cold-chain monitoring and vehicle telemetry across East Africa.",
   keywords: [
     "IoT Kenya",
-    "Smart Home Nairobi",
     "Cold chain monitoring",
-    "Energy monitoring",
-    "Generator monitoring",
+    "Vehicle telemetry",
     "Powerise",
-    "Smart meters",
-    "Truck telematics"
+    "Fleet tracking",
+    "Cold chain logistics"
   ],
   authors: [{ name: "Powerise Solutions Limited" }],
   openGraph: {
@@ -50,13 +48,13 @@ export const metadata: Metadata = {
     siteName: "Powerise Solutions",
     title: "Powerise Solutions: Intelligent IoT for a Connected Africa",
     description:
-      "Energy, generator, water, gas, cold-chain and smart-home IoT, engineered for African conditions."
+      "Cold-chain monitoring and vehicle telemetry, engineered for African conditions."
   },
   twitter: {
     card: "summary_large_image",
     title: "Powerise Solutions: Intelligent IoT",
     description:
-      "Energy, generator, water, gas, cold-chain and smart-home IoT, engineered for African conditions."
+      "Cold-chain monitoring and vehicle telemetry, engineered for African conditions."
   }
 };
 

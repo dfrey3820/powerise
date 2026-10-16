@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { Partners } from "@/components/Partners";
 import { Pillars } from "@/components/Pillars";
-import { Places } from "@/components/Places";
 import { Process } from "@/components/Process";
 import { CTA } from "@/components/CTA";
 
@@ -13,7 +12,6 @@ export default function HomePage() {
       <Hero />
       <Welcome />
       <Pillars />
-      <Places />
       <Process />
       <CTA />
       <Partners />
@@ -30,7 +28,7 @@ function Welcome() {
             Welcome to Powerise Solutions Limited
           </h2>
           <p className="mx-auto mt-3 max-w-5xl text-[15px] leading-6 text-fog-300 md:mt-4 md:text-lg md:leading-relaxed">
-            Powerise Solutions Limited is an IoT provider specializing in smart technologies that improve the efficiency, reliability and sustainability of essential resources and infrastructure. Its portfolio spans energy management, power backup, smart home automation and supply-chain monitoring.
+            We help protect temperature-sensitive goods and give fleet operators clear, real-time visibility of their vehicles, cargo and routes.
           </p>
           <Link
             href="/about"

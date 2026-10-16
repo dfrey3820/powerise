@@ -8,7 +8,7 @@ import { pillars } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "Powerise IoT solutions, energy & solar, cold chain, truck & fleet telematics with generator monitoring, utility monitoring, and smart homes."
+    "Explore Powerise cold-chain monitoring and vehicle telemetry solutions for live shipment and fleet visibility."
 };
 
 export default function ServicesPage() {
@@ -16,8 +16,8 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Solutions"
-        title={<>Six IoT platforms, one accountable partner.</>}
-        description="Every Powerise solution runs on the same DIN-rail IoT gateway, cloud analytics and alerting fabric, so you can start with one and add the rest without a re-platform."
+        title={<>Cold chain and vehicle visibility.</>}
+        description="Monitor temperature-sensitive shipments and track vehicles, cargo and routes through connected IoT devices and real-time alerts."
       />
 
       <section className="bg-gradient-to-b from-ink-50 via-ink-200/60 to-brand-50/40 py-20 md:py-24">

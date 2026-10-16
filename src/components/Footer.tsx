@@ -38,7 +38,6 @@ export function Footer() {
             title="Company"
             links={[
               { label: "About", href: "/about" },
-              { label: "Industries", href: "/industries" },
               { label: "Contact", href: "/contact" }
             ]}
           />

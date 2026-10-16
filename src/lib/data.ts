@@ -38,47 +38,12 @@ export const navigation: NavItem[] = [
         ]
       },
       {
-        label: "Energy / Solar Solutions",
-        href: "/services/energy-monitoring",
-        description: "Energy audits & solar installations, batteries, inverters, panels"
-      },
-      {
-        label: "Utility Monitoring",
-        href: "/services/utility-monitoring",
-        description: "Generator, electricity, solar, backup batteries, water & gas",
-        linkless: true,
-        children: [
-          {
-            label: "Generator & Fuel Monitoring",
-            href: "/services/utility-monitoring/generator-monitoring"
-          },
-          {
-            label: "Smart Electricity Metering",
-            href: "/services/utility-monitoring/electricity-monitoring"
-          },
-          {
-            label: "Solar & Backup Battery Monitoring",
-            href: "/services/utility-monitoring/solar-battery-monitoring"
-          },
-          {
-            label: "Water & Gas Metering",
-            href: "/services/utility-monitoring/water-gas-metering"
-          }
-        ]
-      },
-      {
-        label: "Smart Homes",
-        href: "/services/smart-home",
-        description: "Locks, curtains, sockets, switches, gates, CCTV, door bells & lighting"
-      },
-      {
-        label: "Trucks & Car Tracking",
+        label: "Vehicle Telemetry",
         href: "/services/truck-telematics",
         description: "GPS, driver behaviour, fuel, load carrying & temperature"
       }
     ]
   },
-  { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" }
 ];
 
@@ -87,7 +52,7 @@ export const company = {
   short: "Powerise",
   tagline: "Intelligent IoT for a connected Africa.",
   intro:
-    "Powerise Solutions Limited is an IoT provider specializing in smart technologies that improve the efficiency, reliability and sustainability of essential resources and infrastructure. Its portfolio spans energy management, power backup, smart home automation and supply-chain monitoring.",
+    "Powerise Solutions Limited delivers IoT solutions for cold-chain visibility and vehicle telemetry across East Africa.",
   address:
     "Jabavu House, Jabavu Lane, off Argwings Kodhek Road, Hurlingham, Nairobi, Kenya",
   email: "info@powerise.co.ke",
@@ -132,23 +97,9 @@ export const vision = {
 
 /**
  * Top-level offerings, mirrored from the client's IoT decks.
- * These are the six lead solutions surfaced on the homepage.
+ * These are the active solutions surfaced on the site.
  */
 export const pillars = [
-  {
-    slug: "energy-monitoring",
-    icon: "gauge",
-    title: "Energy Monitoring",
-    tagline: "See every kWh in real time.",
-    description:
-      "IoT-enabled Energy Audit powered by smart meters. Continuous, granular insight into voltage, current, power factor and load patterns across buildings, circuits and equipment.",
-    features: [
-      "Real-time consumption dashboards",
-      "Automated audit reports & benchmarks",
-      "Anomaly, peak-load & wastage detection",
-      "Time-of-use billing and TOU tariffs"
-    ]
-  },
   {
     slug: "cold-chain",
     icon: "snowflake",
@@ -166,43 +117,15 @@ export const pillars = [
   {
     slug: "truck-telematics",
     icon: "truck",
-    title: "Truck & Fleet Telematics",
+    title: "Vehicle Telemetry",
     tagline: "Full visibility over 250+ parameters.",
     description:
-      "Monitor engine health, fuel, cargo weight, routes and driver behaviour across trucks, reefer fleets and diesel generators. Genset telemetry and cold-chain tracking support perishable loads.",
+      "Monitor location, engine health, fuel, cargo and driver behaviour across cars, trucks and reefer fleets, with cold-chain tracking for perishable loads.",
     features: [
       "Fuel theft prevention & consumption analytics",
       "Axle-load and cargo tampering detection",
       "Driver behaviour, speeding & route deviation",
-      "Generator fuel, engine health & run-hours"
-    ]
-  },
-  {
-    slug: "utility-monitoring",
-    icon: "droplet",
-    title: "Utility Monitoring",
-    tagline: "Every utility, measured in real time.",
-    description:
-      "One IoT platform to monitor every utility you depend on: generators, grid electricity, solar and backup batteries, water and gas. Real-time dashboards, leak and theft detection, and audit-ready reporting across your sites.",
-    features: [
-      "Generator health, fuel & run-hours over 250+ parameters",
-      "Smart electricity metering with TOU billing",
-      "Solar production & backup battery health",
-      "Ultrasonic water & gas metering with leak alerts"
-    ]
-  },
-  {
-    slug: "smart-home",
-    icon: "home",
-    title: "Smart Home & Locks",
-    tagline: "A home that thinks with you.",
-    description:
-      "Control smart locks, lighting, switches, sockets and CCTV from one app. Access options include mobile, PIN, RFID, fingerprint and mechanical key.",
-    features: [
-      "Fingerprint, PIN, RFID, app & key unlock",
-      "Wi-Fi smart switches, sockets and dimmers",
-      "Alexa & Google Home voice control",
-      "AI encryption chip and anti-peep passwords"
+      "Live GPS tracking with route history"
     ]
   }
 ] as const;

@@ -55,13 +55,8 @@ export function ContactForm() {
           <option value="" disabled>
             Select a solution
           </option>
-          <option value="energy-monitoring">Energy Monitoring</option>
-          <option value="generator-monitoring">Generator Monitoring</option>
           <option value="cold-chain">Cold Chain</option>
-          <option value="truck-telematics">Truck &amp; Fleet Telematics</option>
-          <option value="utility-monitoring">Utility Monitoring</option>
-          <option value="smart-home">Smart Home &amp; Locks</option>
-          <option value="other">Something else</option>
+          <option value="truck-telematics">Vehicle Telemetry</option>
         </select>
       </div>
       <div>

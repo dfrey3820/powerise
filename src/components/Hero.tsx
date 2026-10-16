@@ -16,33 +16,6 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: "/hero/slide-2.jpg",
-    eyebrow: "Energy & Solar",
-    title: "Make every unit of power count.",
-    description:
-      "See consumption, generation and load across your sites, all in one place.",
-    href: "/services/energy-monitoring",
-    imageAlt: "Connected devices and cloud technology representing energy monitoring"
-  },
-  {
-    src: "/products/energy-meters-install.jpg",
-    eyebrow: "Utility Monitoring",
-    title: "Catch losses before they add up.",
-    description:
-      "Track usage and spot leaks, tampering and unusual readings sooner.",
-    href: "/services/utility-monitoring",
-    imageAlt: "Installed smart electricity meters and wiring"
-  },
-  {
-    src: "/hero/slide-1.jpg",
-    eyebrow: "Smart Homes",
-    title: "Control your home from one place.",
-    description:
-      "Bring locks, lighting, switches and cameras together in one app.",
-    href: "/services/smart-home",
-    imageAlt: "Connected home with lighting, security and climate controls"
-  },
-  {
     src: "/hero/slide-3.jpg",
     eyebrow: "Cold Chain",
     title: "Keep every shipment in range.",
@@ -53,7 +26,7 @@ const slides: Slide[] = [
   },
   {
     src: "/dashboards/truck-telematics.jpg",
-    eyebrow: "Truck & Fleet Telematics",
+    eyebrow: "Vehicle Telemetry",
     title: "Know what is happening on the road.",
     description:
       "See vehicle location, fuel events and driver activity across your fleet.",

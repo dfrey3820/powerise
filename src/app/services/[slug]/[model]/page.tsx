@@ -10,8 +10,8 @@ import { pillars, productModels } from "@/lib/data";
 type Params = { params: Promise<{ slug: string; model: string }> };
 
 export function generateStaticParams() {
-  return Object.entries(productModels).flatMap(([slug, models]) =>
-    models.map((m) => ({ slug, model: m.slug }))
+  return pillars.flatMap(({ slug }) =>
+    (productModels[slug] ?? []).map((model) => ({ slug, model: model.slug }))
   );
 }
 
