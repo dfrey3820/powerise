@@ -27,20 +27,18 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://powerise.co.ke"),
   title: {
-    default: "Powerise Solutions — Intelligent IoT for a Connected Africa",
+    default: "Powerise Solutions: Intelligent IoT for a Connected Africa",
     template: "%s · Powerise Solutions"
   },
   description:
-    "Powerise Solutions Limited designs and deploys IoT platforms for energy, generator, water, gas, cold-chain and smart-home applications across East Africa.",
+    "Powerise Solutions Limited delivers cold-chain monitoring and vehicle telemetry across East Africa.",
   keywords: [
     "IoT Kenya",
-    "Smart Home Nairobi",
     "Cold chain monitoring",
-    "Energy monitoring",
-    "Generator monitoring",
+    "Vehicle telemetry",
     "Powerise",
-    "Smart meters",
-    "Truck telematics"
+    "Fleet tracking",
+    "Cold chain logistics"
   ],
   authors: [{ name: "Powerise Solutions Limited" }],
   openGraph: {
@@ -48,15 +46,15 @@ export const metadata: Metadata = {
     locale: "en_KE",
     url: "https://powerise.co.ke",
     siteName: "Powerise Solutions",
-    title: "Powerise Solutions — Intelligent IoT for a Connected Africa",
+    title: "Powerise Solutions: Intelligent IoT for a Connected Africa",
     description:
-      "Energy, generator, water, gas, cold-chain and smart-home IoT — engineered for African conditions."
+      "Cold-chain monitoring and vehicle telemetry, engineered for African conditions."
   },
   twitter: {
     card: "summary_large_image",
-    title: "Powerise Solutions — Intelligent IoT",
+    title: "Powerise Solutions: Intelligent IoT",
     description:
-      "Energy, generator, water, gas, cold-chain and smart-home IoT — engineered for African conditions."
+      "Cold-chain monitoring and vehicle telemetry, engineered for African conditions."
   }
 };
 

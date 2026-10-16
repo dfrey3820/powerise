@@ -8,7 +8,7 @@ import { pillars } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "Powerise IoT solutions — energy monitoring, generator monitoring, cold chain, truck telematics, water & gas metering, and smart home & locks."
+    "Explore Powerise cold-chain monitoring and vehicle telemetry solutions for live shipment and fleet visibility."
 };
 
 export default function ServicesPage() {
@@ -16,11 +16,11 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Solutions"
-        title={<>Six IoT platforms, one accountable partner.</>}
-        description="Every Powerise solution runs on the same DIN-rail IoT gateway, cloud analytics and alerting fabric — so you can start with one and add the rest without a re-platform."
+        title={<>Cold chain and vehicle visibility.</>}
+        description="Monitor temperature-sensitive shipments and track vehicles, cargo and routes through connected IoT devices and real-time alerts."
       />
 
-      <section className="py-20 md:py-24">
+      <section className="bg-gradient-to-b from-ink-50 via-ink-200/60 to-brand-50/40 py-20 md:py-24">
         <div className="container-x space-y-14">
           {pillars.map((p, i) => (
             <article
@@ -37,7 +37,7 @@ export default function ServicesPage() {
                 </p>
                 <Link
                   href={`/services/${p.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700"
                 >
                   Deep dive
                   <ArrowUpRight className="h-4 w-4" />
